@@ -6,11 +6,12 @@ on:
   workflow_dispatch:
     inputs:
       action-name:
-        required: true
+        type: string
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ${{ inputs.action-name }}
+      - uses: ${{ github.event.inputs.action-name }}
